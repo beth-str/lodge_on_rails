@@ -1,12 +1,11 @@
 <div class="page-header">
 <h1>All Activities</h1>
 </div>
-<p>Find me in app/views/activities/index.html.erb</p>
-<h3>Does this route work?</h3>
 
 <div>
 <% @activities.each do |t| %>
 <p><strong><%= t.name %></strong> | <%= t.person_limit %><br />
+<%= link_to 'Show', "activities/#{t.id}" %> | 
 <%= link_to('Edit', :action => 'edit', :id => t.id) %> | 
 <%= link_to 'Delete', "activities/#{t.id}",
 			method: :delete, 
@@ -16,6 +15,8 @@
 </div>
 <br />
 
-<%= link_to 'New activity', new_activity_path %>
+<h4><%= link_to 'Add a new activity', new_activity_path %>  |  
+<%= link_to("Back", activities_path)%> </h4> 
+
 
 <p>Params: <%= params.inspect %></p>

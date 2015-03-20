@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-    @activity_new = Activity.new({name: params[:name], person_limit: params[:person_limit]})
+    @activity = Activity.new
   end
 
   def edit
