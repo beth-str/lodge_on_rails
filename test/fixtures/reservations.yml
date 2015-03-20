@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contact: MyString
+  email: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  phone: MyString
+  no_adults: 1
+  no_children: 1
+  arrival_date: 2015-03-19
+  departure_date: 2015-03-19
+  status: MyString
+  additional_info: MyText
+
+two:
+  contact: MyString
+  email: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  phone: MyString
+  no_adults: 1
+  no_children: 1
+  arrival_date: 2015-03-19
+  departure_date: 2015-03-19
+  status: MyString
+  additional_info: MyText
