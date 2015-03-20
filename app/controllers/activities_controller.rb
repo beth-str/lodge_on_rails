@@ -16,9 +16,9 @@ class ActivitiesController < ApplicationController
   end
   
   def create
-    activity = Activity.new(params["activity"])
+    activity = Activity.new(params[:activity])
     if activity.save
-      redirect_to "/activities/index"
+      redirect_to "/activities"
     else 
       @message = "did not work"
     end
@@ -27,20 +27,18 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
 
-    respond_to do |format|
-      if @activity.update_attributes(params[:activity])
-        format.html { redirect_to @user, notice: 'Activity was successfully updated.' }
-        format.json { head :no_content }
+    if @activity.update_attributes(params[:activity])
+        redirect_to @activity      
       else
-        format.html { render action: "edit" }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
+        render "edit"
     end
   end
 
   def destroy
-    activity = Activity.find(params[:id])
-    activity.destroy
-    end
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+
+    redirect_to activities_path
+  end
   
 end

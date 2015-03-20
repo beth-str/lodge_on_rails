@@ -1,13 +1,15 @@
 LodgeOnRails::Application.routes.draw do
 
-  # resources :activities
-  # resources :guests
-  # resources :reservations
+  resources :activities
+  resources :guests
+  resources :reservations
 
-  get "activities/index"
-  get "activities/show/:id"
-  get "activities/new"
-  get "activities/edit"
+  # root to: 'activities/index'
+
+  # get "activities/index"
+  # get "activities/show/:id"
+  # get "activities/new"
+  # get "activities/edit"
 
   # get "activities"              # INDEX
   # get "activities/:id"          # SHOW (displays one record)
@@ -17,18 +19,17 @@ LodgeOnRails::Application.routes.draw do
   # put "activities/:id"          # UPDATE (saves edit form data)
   # delete "activities/:id"       # DESTROY
 
-  get "guests/index"
-  get "guests/show/:id"
-  get "guests/new"
-  get "guests/edit"
+  # get "guests/index"
+  # get "guests/show/:id"
+  # get "guests/new"
+  # get "guests/edit"
 
-  get "reservations/index"
-  get "reservations/show"
-  get "reservations/new"
-  get "reservations/edit"
+  # get "reservations/index"
+  # get "reservations/show"
+  # get "reservations/new"
+  # get "reservations/edit"
   
-  
-  
+    
   # get "reservations"            # INDEX
   # get "reservations/:id"        # SHOW (displays one record)
   # get "reservations/new"        # NEW (form)
