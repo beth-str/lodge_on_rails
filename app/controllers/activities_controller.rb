@@ -38,6 +38,8 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
 
+    flash[:notice] = "Activity deleted."
+
     redirect_to activities_path
   end
   
