@@ -1,2 +1,20 @@
-<h1>Activities#edit</h1>
+<h1>Edit the Activity</h1>
 <p>Find me in app/views/activities/edit.html.erb</p>
+
+
+<%= form_for(:activity, method: :put, 
+			:url => {:action => 'update'}) do |f| %>
+  <%= f.label "Activity Name:" %>
+  <%= f.text_field(:name) %><br />
+  
+  <%= f.label "Person Limit:" %>
+  <%= f.number_field(:person_limit) %><br />
+    
+  <%= f.submit "Edit Activity", class: "btn btn-primary" %> 
+<% end %>
+<br />
+  
+<p> <%= link_to("Back", activities_path)%> </p> 
+
+<p>Params: <%= params.inspect %></p>  
+

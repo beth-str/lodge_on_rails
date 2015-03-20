@@ -8,8 +8,7 @@
 <% @activities.each do |t| %>
 <p><strong><%= t.name %></strong> | <%= t.person_limit %><br />
 <%= link_to('Edit', :action => 'edit', :id => t.id) %> | 
-<%= link_to 'Delete', activities_path,
-			id: :t,
+<%= link_to 'Delete', "activities/#{t.id}",
 			method: :delete, 
 			data: { confirm: 'Are you sure you want to delete this activity?' } %></p>
 
