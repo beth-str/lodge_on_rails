@@ -1,5 +1,5 @@
 class CreateGuests < ActiveRecord::Migration
-  def change
+  def up
     create_table :guests do |t|
       t.string :first_name
       t.string :last_name
@@ -10,5 +10,9 @@ class CreateGuests < ActiveRecord::Migration
       t.timestamps
     end
     add_index :guests, :reservation_id
+  end
+
+  def down
+    drop_table :guests
   end
 end

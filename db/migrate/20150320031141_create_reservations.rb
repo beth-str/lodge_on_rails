@@ -1,5 +1,5 @@
 class CreateReservations < ActiveRecord::Migration
-  def change
+  def up
     create_table :reservations do |t|
       t.string :contact
       t.string :email
@@ -16,5 +16,9 @@ class CreateReservations < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :reservations
   end
 end
