@@ -1,2 +1,35 @@
-<h1>Guests#index</h1>
+<% if !flash[:notice].blank? %>
+	<div class="panel panel-primary">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class="page-header">
+<h1>All Guests</h1>
+</div>
+
+<div>
+	<% Reservation.all.each do |r| %>
+	<p>Guests assigned to <strong><%= r.contact %></strong> reservation 
+		(arriving <%= r.arrival_date %>):</p>
+		<div class="well">
+			<% @guests.each do |t| %>
+				<% if t.reservation_id == r.id %>
+				<p><%= t.id %> <strong><%= t.first_name %><%= t.last_name %></strong> | Age: <%= t.age %> | <%= t.gender %><br />
+				<%= link_to 'Show', "guests/#{t.id}" %> | 
+				<%= link_to('Edit', :action => 'edit', :id => t.id) %> | 
+				<%= link_to 'Delete', "guests/#{t.id}", method: :delete, 
+							data: { confirm: 'Are you sure you want to delete this guest?' } %>
+				</p>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<br />
+<h4><%= link_to 'Add a new guest', new_guest_path %></h4>
+
+<br />
+<br />
+<p>Params: <%= params.inspect %></p>
 <p>Find me in app/views/guests/index.html.erb</p>

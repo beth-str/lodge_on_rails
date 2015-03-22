@@ -1,2 +1,32 @@
+<div class="page-header">
+	<h1>Edit Guest</h1>
+</div>
+
+<% @reservations = Reservation.all %>
+<%= form_for(:activity, method: :put, :url => {:action => 'update'}) do |f| %>
+ 
+<p><%= f.label "Select the reservation:" %><br>
+	<%= f.select :reservation_id, options_for_select(@reservations.collect{ |r| [r.contact, r.id] }), :include_blank => true %>
+ 
+  <p><%= f.label "First Name:" %><br>
+  <%= f.text_field(:first_name) %></p>
+  
+  <p><%= f.label "Last Name:" %><br>
+  <%= f.text_field(:last_name) %></p>
+
+  <p><%= f.label "Age:" %><br>
+  <%= f.number_field(:age) %></p>
+
+  <p><%= f.label "Gender:" %><br>
+  <%= f.select :gender, [['Female', 'female'], ['Male', 'male']],
+  												:include_blank => true %></p>
+
+  <%= f.submit "Save Edits", class: "btn btn-primary" %> 
+<% end %>
+<br />
+  
+<p> <%= link_to("View all guests", guests_path)%> </p> 
+<br>
+<p>Params: <%= params.inspect %></p>  
 <h1>Guests#edit</h1>
 <p>Find me in app/views/guests/edit.html.erb</p>

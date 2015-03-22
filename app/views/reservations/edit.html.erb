@@ -1,2 +1,48 @@
+<div class="page-header">
+	<h1>Edit Reservation</h1>
+</div>
+
+<%= form_for(:reservation, method: :put, 
+			:url => {:action => 'update'}) do |f| %>
+    <p><%= f.label "Contact Name:" %><br>
+  <%= f.text_field(:contact) %></p>
+  
+  <p><%= f.label "Email:" %><br>
+  <%= f.text_field(:email) %></p>
+
+  <p><%= f.label "Address:" %><br>
+  <%= f.text_field(:address) %></p>
+
+  <p><%= f.label "City:" %><br>
+  <%= f.text_field(:city) %></p>
+
+  <p><%= f.label "State:" %><br>
+  <%= f.text_field(:state) %></p>
+
+  <p><%= f.label "Phone Number:" %><br>
+  <%= f.text_field(:contact) %></p>
+  
+  <p><%= f.label "Number of Adults:" %><br>
+  <%= f.number_field(:no_adults) %></p>
+
+	<p><%= f.label "Number of Children (12 and under):" %><br>
+  <%= f.number_field(:no_children) %></p>
+
+  <p><%= f.label "Arrival Date:" %><br>
+  <%= f.date_select(:arrival_date, :order => [:day, :month, :year]) %></p>
+    
+  <p><%= f.label "Departure Date:" %><br>
+  <%= f.date_select(:departure_date, :order => [:day, :month, :year]) %></p>
+
+  <p><%= f.label "Special considerations (ie, allergies, disabilities, etc):" %><br>
+  <%= f.text_area(:additional_info, size: "70x3") %></p>
+
+  <%= f.submit "Save Edits", class: "btn btn-primary" %> 
+<% end %>
+<br />
+  
+<p> <%= link_to("View all Reservations", reservations_path)%> </p> 
+<br>
+<p>Params: <%= params.inspect %></p>  
 <h1>Reservations#edit</h1>
 <p>Find me in app/views/reservations/edit.html.erb</p>

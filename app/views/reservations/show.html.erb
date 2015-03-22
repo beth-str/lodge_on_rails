@@ -1,2 +1,26 @@
+<h3><%= @reservation.contact %> | <%= @reservation.email %> | <%= @reservation.phone %></h3>  
+<p>Address: <%= @reservation.address %> | City: <%= @reservation.city %> | <%= @reservation.state %></p>
+<p>Adults: <%= @reservation.no_adults %> | Children: <%= @reservation.no_children %></p>
+<p>Arrival: <%= @reservation.arrival_date %> | Departure: <%= @reservation.departure_date %></p>
+<p>Additional Info: <%= @reservation.additional_info %></p>
+<p>Date Created: <%= @reservation.created_at %></p>
+<div>
+	<p>
+		<% x = @reservation.id %>
+		<%= link_to('Edit', :action => 'edit', :id => x) %> | 
+		<%= link_to 'Delete', "/reservation/#{@reservation.id}",
+								method: :delete, 
+								data: { confirm: 'Do you really want to delete this activity?' } %>
+	</p>
+</div>
+
+<br />
+<h4><%= link_to 'Add a new activity', new_activity_path %>  |  <%= link_to 'View all activities', activities_path %></h4>  
+<h4><%= link_to 'Add a new guest', new_guest_path %>  |  <%= link_to 'View all guests', guests_path %></h4>
+<h4><%= link_to 'Add a new reservation', new_reservation_path %>  |  <%= link_to 'View all reservations', reservations_path %></h4>
+<br />
+<%= params.inspect %>
 <h1>Reservations#show</h1>
 <p>Find me in app/views/reservations/show.html.erb</p>
+
+

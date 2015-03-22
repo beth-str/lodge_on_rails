@@ -18,9 +18,11 @@ class ActivitiesController < ApplicationController
   def create
     activity = Activity.new(params[:activity])
     if activity.save
-      redirect_to "/activities"
+      flash[:notice] = "New activity saved."
+      redirect_to activities_path
     else 
       @message = "did not work"
+      render 'new'
     end
   end
   

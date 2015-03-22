@@ -1,16 +1,56 @@
-<p>Find me in app/views/guests/new.html.erb</p>
+<% if @guest.errors.any? %>
+	<div class="bg-danger">
+		<ul>
+			<%= @guest.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</class>
+<% end %>
+<hr />
+
+<p>how do I select the reservation<br> 
+ each guest has foreign-key = reservation_id</p>
+
+<% @reservations = Reservation.all %>
+
 <div class="page-header">
-<h1>Add a New Guest</h1>
+	<h1><small>Add a New Guest</small></h1>
 </div>
 
+<%= form_for(:guest, :url => {:action => 'create'}) do |f| %>
 
-<p>Need a form for this page to add a new guest</p>
+<p><%= f.label "Select the reservation:" %><br>
+	<%= f.select :reservation_id, options_for_select(@reservations.collect{ |r| [r.contact, r.id] }), :include_blank => true %>
+ 
+  <p><%= f.label "First Name:" %><br>
+  <%= f.text_field(:first_name) %></p>
+  
+  <p><%= f.label "Last Name:" %><br>
+  <%= f.text_field(:last_name) %></p>
 
+  <p><%= f.label "Age:" %><br>
+  <%= f.number_field(:age) %></p>
 
-
-
-
-
+  <p><%= f.label "Gender:" %><br>
+  <%= f.select :gender, [['Female', 'female'], ['Male', 'male']],
+  												:include_blank => true %></p>
+  
+  <p><%= f.submit "Add New Guest", class: "btn btn-primary" %></p> 
+<% end %>
 
 <br />
-  <%= params.inspect %>
+<p> <%= link_to("Back", guests_path)%> </p> 
+<br />
+<p>Find me in app/views/guests/new.html.erb</p>
+<p>Params: <%= params.inspect %></p>  
+
+
+
+
+
+
+
+
+
+
