@@ -1,0 +1,4 @@
+class Activity_Guest < ActiveRecord::Base
+	belongs_to :activity
+	belongs_to :guest
+end

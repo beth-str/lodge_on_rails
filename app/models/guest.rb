@@ -2,7 +2,9 @@ class Guest < ActiveRecord::Base
   attr_accessible :age, :first_name, :gender, :last_name, :reservation_id
 
   belongs_to :reservation
-  has_and_belongs_to_many :activities
+  
+  has_many :activity_guests
+	has_many :activities, through: :activity_guests
 
   accepts_nested_attributes_for :activities, :allow_destroy => true
   accepts_nested_attributes_for :reservation
