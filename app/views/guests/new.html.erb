@@ -9,11 +9,6 @@
 <% end %>
 <hr />
 
-<p>how do I select the reservation<br> 
- each guest has foreign-key = reservation_id</p>
-
-<% @reservations = Reservation.all %>
-
 <div class="page-header">
 	<h1><small>Add a New Guest</small></h1>
 </div>
@@ -40,7 +35,7 @@
 <% end %>
 
 <br />
-<p> <%= link_to("Back", guests_path)%> </p> 
+<p> <%= link_to("View all guests", guests_path)%> </p> 
 <br />
 <p>Find me in app/views/guests/new.html.erb</p>
 <p>Params: <%= params.inspect %></p>  

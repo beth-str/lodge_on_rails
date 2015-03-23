@@ -9,10 +9,12 @@ class GuestsController < ApplicationController
 
   def new
     @guest = Guest.new
+    @reservations = Reservation.all
   end
 
   def edit
     @guest = Guest.find(params[:id])
+    @reservations = Reservation.all
   end
   
   def create
@@ -45,4 +47,8 @@ class GuestsController < ApplicationController
     redirect_to guests_path
   end
   
+  def full_name
+    guest = Guest.find(params[:id])
+    @full_name = "#{guest.first_name} + ' ' + #{guest.last_name}"
+  end
 end

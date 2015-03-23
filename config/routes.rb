@@ -5,8 +5,8 @@ LodgeOnRails::Application.routes.draw do
   root :to => "activities#index"
 
   # get 'guests/activities',         :to => 'guests#activities_show'
-  # get 'guests/assign_activity',    :to => 'guests#assign_activity'
-  # post 'guests/assign_activity',   :to => 'guests#assign_activity_create'
+  get 'guests/assign_activity/:id',  :to => 'guests#assign_activity'
+  post 'guests/assign_activity',     :to => 'guests#assign_activity#create'
 
 
   # get "activities/index"

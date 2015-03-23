@@ -3,11 +3,12 @@
 </div>
 
 <% @reservations = Reservation.all %>
-<%= form_for(:activity, method: :put, :url => {:action => 'update'}) do |f| %>
- 
-<p><%= f.label "Select the reservation:" %><br>
-	<%= f.select :reservation_id, options_for_select(@reservations.collect{ |r| [r.contact, r.id] }), :include_blank => true %>
- 
+
+<%= form_for(:guest, method: :put, :url => {:action => 'update'}) do |f| %>
+
+  <p><%= f.label "Select the reservation:" %><br>
+  <%= f.select :reservation_id, options_for_select(@reservations.collect{ |r| [r.contact, r.id] }), :include_blank => true %></p>
+
   <p><%= f.label "First Name:" %><br>
   <%= f.text_field(:first_name) %></p>
   

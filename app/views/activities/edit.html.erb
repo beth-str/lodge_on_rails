@@ -4,13 +4,13 @@
 
 <%= form_for(:activity, method: :put, 
 			:url => {:action => 'update'}) do |f| %>
-  <%= f.label "Activity Name:" %>
-  <%= f.text_field(:name) %><br />
+  <p><%= f.label "Activity Name:" %><br>
+  <%= f.text_field(:name) %></p>
   
-  <%= f.label "Person Limit:" %>
-  <%= f.number_field(:person_limit) %><br />
+  <p><%= f.label "Person Limit:" %><br>
+  <%= f.number_field(:person_limit) %></p>
     
-  <%= f.submit "Edit Activity", class: "btn btn-primary" %> 
+  <p><%= f.submit "Edit Activity", class: "btn btn-primary" %></p> 
 <% end %>
 <br />
   

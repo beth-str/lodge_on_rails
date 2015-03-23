@@ -15,7 +15,8 @@
 		<div class="well">
 			<% @guests.each do |t| %>
 				<% if t.reservation_id == r.id %>
-				<p><%= t.id %> <strong><%= t.first_name %><%= t.last_name %></strong> | Age: <%= t.age %> | <%= t.gender %><br />
+				<p><%= t.id %> <strong><%= t.first_name %> <%= t.last_name %></strong> | Age: <%= t.age %> | <%= t.gender %><br />
+				<%= link_to 'Assign Activity', "guests/assign_activity/#{t.id}" %> | 
 				<%= link_to 'Show', "guests/#{t.id}" %> | 
 				<%= link_to('Edit', :action => 'edit', :id => t.id) %> | 
 				<%= link_to 'Delete', "guests/#{t.id}", method: :delete, 
