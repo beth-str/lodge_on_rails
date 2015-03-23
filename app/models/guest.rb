@@ -3,8 +3,8 @@ class Guest < ActiveRecord::Base
 
   belongs_to :reservation
   
-  has_many :activity_guests
-	has_many :activities, through: :activity_guests
+  has_many :activities_guests
+	has_many :activities, through: :activities_guests
 
   accepts_nested_attributes_for :activities, :allow_destroy => true
   accepts_nested_attributes_for :reservation
