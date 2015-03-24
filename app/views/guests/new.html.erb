@@ -32,10 +32,9 @@
   												:include_blank => true %></p>
 
   <div class="field">
-    <%= hidden_field_tag "guest[activity_ids][]", nil %>
     <p><% Activity.all.each do |activity| %>
-    <%= check_box_tag "guest[activity_ids][]", activity.id, @guest.activity_ids.include?(activity.id), id: dom_id(activity) %>
-    <%= label_tag dom_id(activity), activity.name %><br>
+    <%= check_box_tag "guest[activity_ids][]", activity.id %>
+    <%= activity.name %><br>
     <% end %></p>
   </div>                          
   
