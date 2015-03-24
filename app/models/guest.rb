@@ -1,12 +1,5 @@
 class Guest < ActiveRecord::Base
-  attr_accessible :age, 
-                  :first_name, 
-                  :gender, 
-                  :last_name, 
-                  :reservation_id, 
-                  :guest_id, 
-                  :assignments_attributes
-                  :activity_ids
+  attr_protected :id
 
   belongs_to :reservation
   

@@ -18,13 +18,17 @@ class GuestsController < ApplicationController
   end
   
   def create
-    binding.pry
-    activity_ids = params[:guest][:activity_ids]
     guest = Guest.new("first_name" => params[:guest][:first_name],
                       "last_name" => params[:guest][:last_name],
                       "age" => params[:guest][:age],
                       "gender" => params[:guest][:gender],
                       "reservation_id" => params[:guest][:reservation_id])
+binding.pry    
+    activity_ids = params[:guest][:activity_ids]
+    activity_ids.each do |a|
+      guest.assignments.create(activity: a)
+    end
+
     if guest.save
       flash[:notice] = "New guest saved."
       redirect_to guests_path
@@ -44,6 +48,11 @@ class GuestsController < ApplicationController
     end
   end
 
+  def activity
+    @guest = Guest.find(params[:guest_id])
+    @guest.assignments.create(params[:activity_id])
+  end
+
   def destroy
     @guest = Guest.find(params[:id])
     @guest.destroy
@@ -54,7 +63,7 @@ class GuestsController < ApplicationController
   end
   
   def full_name
-    guest = Guest.find(params[:id])
-    @full_name = "#{guest.first_name} + ' ' + #{guest.last_name}"
+    @guest = Guest.find(params[:id])
+    @full_name = "#{@guest.first_name} + ' ' + #{@guest.last_name}"
   end
 end

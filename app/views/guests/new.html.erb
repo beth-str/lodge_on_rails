@@ -28,16 +28,8 @@
   <%= f.number_field(:age) %></p>
 
   <p><%= f.label "Gender:" %><br>
-  <%= f.select :gender, [['Female', 'female'], ['Male', 'male']],
-  												:include_blank => true %></p>
+  <%= f.select :gender, [['Female', 'female'], ['Male', 'male']], :include_blank => true %></p>
 
-  <div class="field">
-    <p><% Activity.all.each do |activity| %>
-    <%= check_box_tag "guest[activity_ids][]", activity.id %>
-    <%= activity.name %><br>
-    <% end %></p>
-  </div>                          
-  
   <p><%= f.submit "Add New Guest", class: "btn btn-primary" %></p> 
 <% end %>
 

@@ -1,9 +1,6 @@
 class Activity < ActiveRecord::Base
-	attr_accessible :name, 
-									:person_limit, 
-									:activity_id,
-									:guests_attributes
-  
+	attr_protected :id
+	
   has_many :assignments
 	has_many :guests, through: :assignments
 
