@@ -5,15 +5,15 @@ class Guest < ActiveRecord::Base
                   :last_name, 
                   :reservation_id, 
                   :guest_id, 
-                  :activities_guests_attributes
+                  :assignments_attributes
+                  :activity_ids
 
   belongs_to :reservation
   
-  has_many :activities_guests
-	has_many :activities, 
-           :through => :activities_guests
+  has_many :assignments
+	has_many :activities, through: :assignments
 
-  accepts_nested_attributes_for :activities_guests
+  accepts_nested_attributes_for :assignments
   accepts_nested_attributes_for :activities, :allow_destroy => true
   accepts_nested_attributes_for :reservation
 

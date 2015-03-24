@@ -7,7 +7,7 @@ gem 'test-unit'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'pry'
 
 # Gems used only for assets and not required
 # in production environments by default.

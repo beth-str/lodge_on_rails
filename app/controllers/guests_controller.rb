@@ -18,7 +18,13 @@ class GuestsController < ApplicationController
   end
   
   def create
-    guest = Guest.new(params[:guest])
+    binding.pry
+    activity_ids = params[:guest][:activity_ids]
+    guest = Guest.new("first_name" => params[:guest][:first_name],
+                      "last_name" => params[:guest][:last_name],
+                      "age" => params[:guest][:age],
+                      "gender" => params[:guest][:gender],
+                      "reservation_id" => params[:guest][:reservation_id])
     if guest.save
       flash[:notice] = "New guest saved."
       redirect_to guests_path
