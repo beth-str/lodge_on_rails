@@ -1,0 +1,23 @@
+
+<div class="page-header">
+<h2>Assigned Guest Activities:</h2>
+</div>
+
+	<% @guests.each do |x| %>
+		<% if x.activities != [] %>
+			<h4><br><%= x.first_name %> <%= x.last_name %> <small>(Age: <%= x.age %>)</small></h4>
+				<ul>
+					<% x.activities.each do |activity| %>
+						<li><%= activity.name %></li>
+					<% end %>
+				</ul>
+		<% end %>
+	<% end %>
+
+<br />
+<br />
+
+<h4><%= link_to 'Add a new activity', new_activity_path %></h4>  
+
+
+<p>Params: <%= params.inspect %></p>

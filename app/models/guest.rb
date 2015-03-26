@@ -1,5 +1,7 @@
 class Guest < ActiveRecord::Base
-  attr_protected :id
+  # attr_protected :id
+
+  attr_accessible :assignments_attributes, :activities_attributes, :activity_ids
 
   belongs_to :reservation
   

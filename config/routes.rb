@@ -1,13 +1,12 @@
 LodgeOnRails::Application.routes.draw do
 
-  resources :activities, :guests, :reservations
-  resources :assignments, only: [:create, :destroy]
+  resources :activities, :guests, :reservations, :assignments
 
-  root :to => "activities#index"
+  root :to => "guests#index"
 
   # get 'guests/activities',         :to => 'guests#activities_show'
-  get 'guests/assign_activity/:id',  :to => 'guests#assign_activity'
-  # post 'guests/assign_activity',     :to => 'guests#assign_activity#create', :redirect => 'guests'
+  # get 'guests/assignments/:id',      :to => 'guest#assignment'
+  # post 'assignments',                :to => 'assignments#create'
 
 
   # get "activities/index"

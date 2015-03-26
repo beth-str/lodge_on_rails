@@ -17,7 +17,7 @@
 				<% if t.reservation_id == r.id %>
 				<p><%= t.id %> <strong><%= t.first_name %> <%= t.last_name %></strong> | Age: <%= t.age %> | <%= t.gender %><br />
 				<%= link_to 'Assign Activity', 
-				"/guests/assign_activity/#{t.id}" %> | 
+				"/assignments/#{t.id}" %> | 
 				<%= link_to 'Show', "/guests/#{t.id}" %> | 
 				<%= link_to('Edit', :action => 'edit', :id => t.id) %> | 
 				<%= link_to 'Delete', "/guests/#{t.id}", method: :delete, 
@@ -29,9 +29,5 @@
 	<% end %>
 </div>
 <br />
-<h4><%= link_to 'Add a new guest', new_guest_path %></h4>
 
-<br />
-<br />
-<p>Params: <%= params.inspect %></p>
-<p>Find me in app/views/guests/index.html.erb</p>
+<h4><%= link_to 'View all assigned guest activities', assignments_path %>   |   <%= link_to 'Add a new guest', new_guest_path %>   |   <%= link_to 'Add a new activity', new_activity_path %></h4>

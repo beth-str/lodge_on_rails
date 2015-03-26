@@ -1,0 +1,29 @@
+<h2>Assign an Activity to a Guest</h2>
+
+<%= form_for(:assignments, method: :post, :url => {:controller => "assignments", :action => 'create'}) do |f| %>
+  
+  <h4><%= @guest.first_name %> <%= @guest.last_name %></h4>
+  <%= f.hidden_field :guest_id, :value => @guest.id %>
+
+  <div class="field">
+    <%= hidden_field_tag "guest[activity_ids][]", nil %>
+    <p><% Activity.all.each do |activity| %>
+    <%= check_box_tag "guest[activity_ids][]", activity.id, @guest.activity_ids.include?(activity.id), id: dom_id(activity) %>
+    <%= label_tag dom_id(activity), activity.name %><br>
+    <% end %></p>
+  </div>    
+
+  <p><%= f.submit "Assign Activity", class: "btn btn-primary" %>
+  <% end %>
+
+
+<p> <%= link_to("View all guests", guests_path)%> </p> 
+
+<br>
+<br />
+<p>Params: <%= params.inspect %></p>
+
+
+
+
+f.collection_select(:article, :author_id, Author.all, :id, :name, :prompt => true)` to `f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)`? 
